@@ -20,16 +20,16 @@
     </form>
   </div>
 
-  <div>
-    <h2>Carga de Gastos</h2>
-    <!-- Formulario de carga de gastos aquí -->
-  
-    <h2>Lista de Gastos</h2>
-    <ul>
-      <li *ngFor="let gasto of obtenerGastos()">
+<div>
+  <h2>Carga de Gastos</h2>
+  <!-- Formulario de carga de gastos aquí -->
+
+  <h2>Lista de Gastos</h2>
+  <ul>
+    <li *ngFor="let gasto of obtenerGastos()">
         <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
-      </li>
-    </ul>
-  </div>
-  
+    </li>
+  </ul>
+</div>
+
   
