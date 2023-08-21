@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { GastosService } from './gastos.service';
 import { GastoModelComponent } from '../models/gasto.models';
+import { CategoriaService } from '../categoria/categoria.service';
+import { CategoriaModelComponent } from '../models/categoria.models';
 
 @Component({
   selector: 'app-gastos',
@@ -11,7 +13,10 @@ import { GastoModelComponent } from '../models/gasto.models';
 export class GastosComponent {
   gasto: GastoModelComponent = new GastoModelComponent();
 
-  constructor(private gastosService: GastosService) {}
+  constructor(
+    private gastosService: GastosService,
+    private categoriaService: CategoriaService
+  ) {}
 
   guardarGasto() {
     this.gastosService.guardarGasto(this.gasto);
@@ -21,4 +26,9 @@ export class GastosComponent {
   obtenerGastos() {
     return this.gastosService.obtenerGastos();
   }
+
+  obtenerCategorias() {
+    return this.categoriaService.obtenerCategorias();
+  }
+
 }
