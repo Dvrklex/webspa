@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { GastosService } from './gastos.service'; // Asegúrate de tener la ruta correcta
+import { GastosService } from './gastos.service';
 import { GastoModelComponent } from '../models/gasto.models';
+import { CategoriaService } from '../categoria/categoria.service';
+import { CategoriaModelComponent } from '../models/categoria.models';
 
 @Component({
   selector: 'app-gastos',
@@ -9,32 +11,24 @@ import { GastoModelComponent } from '../models/gasto.models';
 })
 
 export class GastosComponent {
-  // gasto = {
-  //   name: '',
-  //   detail: '',
-  //   price: 0,
-  //   category: '',
-  //   date: ''
-  // };
+  gasto: GastoModelComponent = new GastoModelComponent();
 
-  gasto: GastoModelComponent = new GastoModelComponent(); // Usa el modelo
-
-  constructor(private gastosService: GastosService) {}
+  constructor(
+    private gastosService: GastosService,
+    private categoriaService: CategoriaService
+  ) {}
 
   guardarGasto() {
     this.gastosService.guardarGasto(this.gasto);
     this.gasto = new GastoModelComponent();
-
-    // this.gasto = {
-    //   name: '',
-    //   detail: '',
-    //   price: 0,
-    //   category: '',
-    //   date: ''
-    // };
   }
 
   obtenerGastos() {
     return this.gastosService.obtenerGastos();
   }
+
+  obtenerCategorias() {
+    return this.categoriaService.obtenerCategorias();
+  }
+
 }
