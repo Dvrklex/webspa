@@ -13,7 +13,7 @@
       <label for="category">Categoría:</label>
       <select  id="category" name="category" [(ngModel)]="gasto.category" required>
         <option value="">Selecciona una categoría</option>
-        <option *ngFor="let categoria of obtenerCategorias()" value="categoria">{{ categoria.name }}</option>
+        <option *ngFor="let categoria of obtenerCategorias()" value={{categoria.name}}>{{ categoria.name }}</option>
       </select>
   
       <label for="date">Fecha:</label>
@@ -31,5 +31,23 @@
     </li>
   </ul>
 </div>
+
+<div>
+  <h2>Filtrar por Categoría</h2>
+  <select [(ngModel)]="filtroCategoria">
+    <option value="">Todas las categorías</option>
+    <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
+  </select>
+</div>
+
+<div>
+  <h2>Lista de Gastos</h2>
+  <ul>
+    <li *ngFor="let gasto of aplicarFiltro()"> <!-- Usa el método aplicarFiltro() aquí -->
+      <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
+    </li>
+  </ul>
+</div>
+
 
   
