@@ -12,6 +12,7 @@ import { CategoriaModelComponent } from '../models/categoria.models';
 
 export class GastosComponent {
   gasto: GastoModelComponent = new GastoModelComponent();
+  filtroCategoria: string = ''; // Agrega esta propiedad
 
   constructor(
     private gastosService: GastosService,
@@ -20,6 +21,7 @@ export class GastosComponent {
 
   guardarGasto() {
     this.gastosService.guardarGasto(this.gasto);
+    console.log(this.gasto.name, this.gasto.category);
     this.gasto = new GastoModelComponent();
   }
 
@@ -31,4 +33,23 @@ export class GastosComponent {
     return this.categoriaService.obtenerCategorias();
   }
 
+  aplicarFiltro() {
+    return this.obtenerGastos().filter(gasto => !this.filtroCategoria || gasto.category === this.filtroCategoria);
+  }
+  
+
+  // aplicarFiltro() {
+  //   const filtro = this.filtroCategoria;
+  //   const gastos = this.obtenerGastos();
+  //   const listaFiltrados = [];
+
+
+  
+  //   if (!filtro) {
+  //     return gastos; // Sin filtro seleccionado, mostrar todos los gastos
+  //   }
+
+  //   const gastosFiltrados = gastos.filter(gasto => gasto.category === filtro);
+  //   return gastosFiltrados;
+  // }
 }
