@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { GastosService } from './gastos.service';
+import { GastosService } from '../service/gastos.service';
 import { GastoModelComponent } from '../models/gasto.models';
-import { CategoriaService } from '../categoria/categoria.service';
+import { CategoriaService } from '../service/categoria.service';
 import { CategoriaModelComponent } from '../models/categoria.models';
 
 @Component({
