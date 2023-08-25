@@ -1,0 +1,9 @@
+<div>
+    <h2>Lista de Gastos Totales</h2>
+    <ul>
+      <li *ngFor="let gastoTotal of obtenerGastosTotales()">
+          <strong>{{ gastoTotal.name }}</strong>  - {{ gastoTotal.price | currency }} 
+      </li>
+    </ul>
+  </div>
+  
