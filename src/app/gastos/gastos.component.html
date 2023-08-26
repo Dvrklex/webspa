@@ -41,7 +41,7 @@
 </div>
 
 <div>
-  <h2>Lista de Gastos</h2>
+  <h2>Lista de Gastos Filtrada</h2>
   <ul>
     <li *ngFor="let gasto of aplicarFiltro()">
       <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}

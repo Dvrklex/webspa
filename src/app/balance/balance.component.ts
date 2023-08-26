@@ -11,14 +11,25 @@ import { BalanceModelComponent } from '../models/balance.models';
 
 export class BalanceComponent {
   balanceGeneral: BalanceModelComponent = new BalanceModelComponent
-  dataList: any[] = [];
+  ListaGastos: any[] = this.gastosService.obtenerGastos();
+  GastoTotal: number = 0;
 
   constructor(
     private gastosService: GastosService,
-    private balanceService: BalanceService
+    private balanceService: BalanceService,
   ) {}
 
-  obtenerGastosTotales() {
-    return this.dataList = this.gastosService.obtenerGastos(); 
+  obtenerGastoTotal() {
+    this.GastoTotal = this.balanceService.sumarGastoTotal(this.ListaGastos)
+    return this.GastoTotal;
+
+    
+    // const listaSumar: any[] = [];
+    // for (const elemento of this.ListaGastos) {
+    //  listaSumar.push(elemento.price)
+    // }
+    // this.GastoTotal = listaSumar.reduce((a, b) => a + b, 0);
+    // console.log(listaSumar);
+    // console.log(this.GastoTotal);
   }
 }
