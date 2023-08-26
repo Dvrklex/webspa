@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
+import { GastosService } from '../service/gastos.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BalanceService {
-  private gastosTotales: any[] = [];
   private GastoTotal: number = 0;
-  constructor() {}
+  private ListaGastos: any[] = this.gastosService.obtenerGastos();
 
-  sumarGastoTotal(ListaGastos: any) {
+  constructor(
+    private gastosService: GastosService,
+  ) {}
+
+  sumarGastoTotal() {
     const listaSumar: any[] = [];
-    for (const elemento of ListaGastos) {
+    for (const elemento of this.ListaGastos) {
      listaSumar.push(elemento.price)
     }
     this.GastoTotal = listaSumar.reduce((a, b) => a + b, 0);
