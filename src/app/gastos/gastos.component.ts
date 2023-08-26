@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { GastosService } from '../service/gastos.service';
 import { GastoModelComponent } from '../models/gasto.models';
+import { GastosService } from '../service/gastos.service';
 import { CategoriaService } from '../service/categoria.service';
-import { CategoriaModelComponent } from '../models/categoria.models';
 
 @Component({
   selector: 'app-gastos',
@@ -12,13 +11,13 @@ import { CategoriaModelComponent } from '../models/categoria.models';
 
 export class GastosComponent {
   gasto: GastoModelComponent = new GastoModelComponent();
-  filtroCategoria: string = ''; // Agrega esta propiedad
+  filtroCategoria: string = '';
 
   constructor(
     private gastosService: GastosService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
   ) {}
-
+  
   guardarGasto() {
     this.gastosService.guardarGasto(this.gasto);
     console.log(this.gasto.name, this.gasto.category);
@@ -34,22 +33,6 @@ export class GastosComponent {
   }
 
   aplicarFiltro() {
-    return this.obtenerGastos().filter(gasto => !this.filtroCategoria || gasto.category === this.filtroCategoria);
+    return this.obtenerGastos().filter(gastoFiltrado => !this.filtroCategoria || gastoFiltrado.category === this.filtroCategoria);
   }
-  
-
-  // aplicarFiltro() {
-  //   const filtro = this.filtroCategoria;
-  //   const gastos = this.obtenerGastos();
-  //   const listaFiltrados = [];
-
-
-  
-  //   if (!filtro) {
-  //     return gastos; // Sin filtro seleccionado, mostrar todos los gastos
-  //   }
-
-  //   const gastosFiltrados = gastos.filter(gasto => gasto.category === filtro);
-  //   return gastosFiltrados;
-  // }
 }
