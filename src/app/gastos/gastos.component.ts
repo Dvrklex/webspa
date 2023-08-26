@@ -3,6 +3,7 @@ import { GastoModelComponent } from '../models/gasto.models';
 import { GastosService } from '../service/gastos.service';
 import { CategoriaService } from '../service/categoria.service';
 
+
 @Component({
   selector: 'app-gastos',
   templateUrl: './gastos.component.html',
@@ -33,6 +34,8 @@ export class GastosComponent {
   }
 
   aplicarFiltro() {
-    return this.obtenerGastos().filter(gastoFiltrado => !this.filtroCategoria || gastoFiltrado.category === this.filtroCategoria);
+    return this.obtenerGastos().filter(
+      gastoFiltrado => !this.filtroCategoria || gastoFiltrado.category === this.filtroCategoria
+    );
   }
 }
