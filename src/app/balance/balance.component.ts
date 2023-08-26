@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { GastosService } from '../service/gastos.service';
 import { BalanceService } from '../service/balance.service';
 import { BalanceModelComponent } from '../models/balance.models';
 
@@ -11,14 +10,14 @@ import { BalanceModelComponent } from '../models/balance.models';
 
 export class BalanceComponent {
   balanceGeneral: BalanceModelComponent = new BalanceModelComponent
-  dataList: any[] = [];
+  GastoTotal: number = 0;
 
   constructor(
-    private gastosService: GastosService,
-    private balanceService: BalanceService
+    private balanceService: BalanceService,
   ) {}
 
-  obtenerGastosTotales() {
-    return this.dataList = this.gastosService.obtenerGastos(); 
+  obtenerGastoTotal() {
+    this.GastoTotal = this.balanceService.sumarGastoTotal()
+    return this.GastoTotal;
   }
 }
