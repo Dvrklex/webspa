@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { GastosComponent } from './gastos/gastos.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { BalanceComponent } from './balance/balance.component';
+import { IngresosComponent } from './ingresos/ingresos.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GastosComponent,
     CategoriaComponent,
-    BalanceComponent
+    BalanceComponent,
+    IngresosComponent
   ],
   imports: [
     BrowserModule,
