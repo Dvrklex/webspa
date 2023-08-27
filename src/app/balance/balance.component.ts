@@ -10,14 +10,12 @@ import { BalanceModelComponent } from '../models/balance.models';
 
 export class BalanceComponent {
   balanceGeneral: BalanceModelComponent = new BalanceModelComponent
-  GastoTotal: number = 0;
 
   constructor(
     private balanceService: BalanceService,
   ) {}
 
   obtenerGastoTotal() {
-    this.GastoTotal = this.balanceService.sumarGastoTotal()
-    return this.GastoTotal;
+    return this.balanceGeneral.balanceGastos = this.balanceService.sumarGastoTotal()
   }
 }
