@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class BalanceModelComponent {
-  balance: number = 0;
+  balanceTotal: number = 0;
   balanceGastos: number = 0;
-  blanceIngresos: number = 0;
+  balanceIngresos: number = 0;
 }
