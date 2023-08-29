@@ -12,3 +12,11 @@
 </form>
 
 <div>{{ balanceGeneral.balanceIngresos }}</div>
+
+
+<h2>Balance De Ingresos y Gastos</h2>
+<form>
+  <button (click)="obtenerBalanceTotal()">Calcular Balance</button>
+</form>
+
+<div>{{ balanceGeneral.balanceTotal }}</div>

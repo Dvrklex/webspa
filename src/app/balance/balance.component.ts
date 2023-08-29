@@ -22,4 +22,8 @@ export class BalanceComponent {
   obtenerIngresoTotal() {
     return this.balanceGeneral.balanceIngresos = this.balanceService.sumarIngresoTotal()
   }
+
+  obtenerBalanceTotal() {
+    return this.balanceGeneral.balanceTotal = this.balanceService.calcularBalance()
+  }
 }

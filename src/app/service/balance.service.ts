@@ -9,6 +9,7 @@ import { IngresosService } from './ingresos.service';
 export class BalanceService {
   private GastoTotal: number = 0;
   private IngresoTotal: number = 0;
+  private BalanceTotal: number = 0;
   private ListaGastos: any[] = this.gastosService.obtenerGastos();
   private ListaIngresos: any[] = this.IngresosService.obtenerIngresos();
 
@@ -37,5 +38,10 @@ export class BalanceService {
     console.log(listaSumarIngresos);
     console.log(this.IngresoTotal);
     return(this.IngresoTotal);
+  }
+
+  calcularBalance(){
+    this.BalanceTotal = this.IngresoTotal - this.GastoTotal;
+    return(this.BalanceTotal)
   }
 }
