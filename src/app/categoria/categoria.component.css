@@ -4,12 +4,15 @@
 }
 
 .categorias{
+    background: #cccccc48;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px #9c4c00;
+    backdrop-filter: blur(10.7px);
+    -webkit-backdrop-filter: blur(10.7px);
+    border: 1px solid #9c4c00;
     width: 90%;
     min-height: 250px;
     margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #9c4c00;
 }
 
 h2{
