@@ -1,3 +1,4 @@
+
 <div class="gastos">
     <h2>Carga de Gastos</h2>
     <form>
@@ -23,7 +24,7 @@
         
       <label for="category">Categoría:</label>
       <select  id="category" name="category" [(ngModel)]="gasto.category" required>
-        <option value="">Selecciona una categoría</option>
+        <option value="">Seleccionar categoría...</option>
         <option *ngFor="let categoria of obtenerCategorias()" value={{categoria.name}}>{{ categoria.name }}</option>
       </select>
     </div>
@@ -36,34 +37,35 @@
   
       <button (click)="guardarGasto()">Guardar</button>
     </form>
-    
-<div class="listaGastos">
-  <h2 *ngIf="obtenerGastos().length > 0 ">Lista de Gastos</h2>
-  <ul>
-    <li *ngFor="let gasto of obtenerGastos()">
-        <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
-    </li>
-  </ul>
-</div>
-
-<div >
-  <h2>Filtrar por Categoría</h2>
-  <select [(ngModel)]="filtroCategoria">
-    <option value="">Todas las categorías</option>
-    <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
-  </select>
-</div>
-
-<div class="listaGastosFiltro">
-  <h2 *ngIf="aplicarFiltro().length > 0">Lista de Gastos Filtrada</h2>
-  <ul>
-    <li *ngFor="let gasto of aplicarFiltro()">
-      <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
-    </li>
-  </ul>
-</div>
-
-
   
+<div class="gastosContainer">
 
+  <div *ngIf="aplicarFiltro().length > 0" class="listaGastosFiltro">
+    <h2>Lista de Gastos</h2>
+   
+    <select [(ngModel)]="filtroCategoria">
+      <option value="">Todas las categorías</option>
+      <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
+    </select>
+    <ul>
+      <li *ngFor="let gasto of aplicarFiltro()">
+        <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
+      </li>
+    </ul>
   </div>
+
+
+  <div *ngIf="aplicarFiltro().length < 0">
+        <select [(ngModel)]="filtroCategoria">
+          <option value="">Todas las categorías</option>
+          <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
+        </select>
+      <ul>
+        <li *ngFor="let gasto of obtenerGastos()">
+            <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
+          </li>
+        </ul>
+  </div>
+
+</div>
+</div>
