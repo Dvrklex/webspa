@@ -1,23 +1,25 @@
-*{
-    font-family:'Courier New', Courier, monospace;;
-}
-    
+ 
 .gastos{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
+    width: 90%;
+    min-height: 250px;
+    margin: 20px auto;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px #ccc;
+    box-shadow: 0 0 10px #9c4c00;
 }
 
 h2{
     text-align: center;
+    font-size: 36px;
+    color: orange;
+    text-shadow: 2px 2px #9c4c00;
+    margin-top: 20px;
 }
 
 
 form {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     margin: auto;
@@ -39,24 +41,53 @@ form > div > input{
     border-radius: 10px;
     padding: 5px;
     height: 20px;
+    box-shadow: 4px 4px #9c4c00;
+}
+form > div > input:focus{
+    border-color: yellow;
+    outline: yellow;
+    cursor: pointer;
 }
 
 form > div > select{
+    
+    border: 2px solid rgb(255, 115, 0);
+    font-size: 18px;
+    color: #000000;
+    background-color: #ffd67d;
+    border-radius: 5px;
+    box-shadow: 4px 4px #9c4c00;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+form > div > select > option{
     border-color: rgb(255, 115, 0);
     border-radius: 10px;
     padding: 5px;
-    background-color: orange;
-
+    background-color: rgb(255, 206, 116);
 }
+form > div > select:focus{
+    border-color:#ff730d ;
+    outline: red;
+}
+form > div > select > option:hover{
+    background-color:#ff9b3d ;
+    cursor: pointer;
+}
+  
+
 
 
 form > button {
     background-color: orange;
-    margin-top: 25px;
+    margin-top: 20px;
     border-style: none ;
     border-radius: 10px;
     height: 40px;
     width: 100px;
+    box-shadow: 4px 4px #9c4c00;
 }
 
 
@@ -64,12 +95,22 @@ form > button:hover {
     cursor: pointer;
     background-color:rgb(255, 123, 0);
 }
+form > button:active{
+    background-color:orange ;
+    transform: translate(0,1px) ;
+    box-shadow: 2px 2px #9c4c00;
+    transition: ease-out;
+}
 
 
+.gastosContaier{
+    display : flex;
+    width: 500px;
+    align-items: center;
+}
 .listaGastos {
     display: grid;
     margin: auto;
-    width: 300px;
 }
 .listaGastos > h2{
     
@@ -84,4 +125,20 @@ form > button:hover {
 .listaGastos > ul > li{
     font-size: 18px;
 
+}
+
+.listaGastos > .filtroSelect{
+    display: flex;
+    width: 500px;
+    padding: 5px;
+    align-items: center;
+}
+
+.listaGastos > .filtroSelect > select{
+    height: 45px;
+    border-color: rgb(255, 115, 0);
+    border-radius: 10px;
+    padding: 5px;
+    background-color: orange;
+    margin: 20px;
 }
