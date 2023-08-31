@@ -1,22 +1,30 @@
+<div class="balanceContainer">
 
-<h2>Gasto Total</h2>
-<form>
-  <button (click)="obtenerGastoTotal()">Calcular Gasto Total</button>
-</form>
-
-<div>{{ balanceGeneral.balanceGastos }}</div>
-
-<h2>Ingreso Total</h2>
-<form>
-  <button (click)="obtenerIngresoTotal()">Calcular Ingreso Total</button>
-</form>
-
-<div>{{ balanceGeneral.balanceIngresos }}</div>
-
-
-<h2>Balance De Ingresos y Gastos</h2>
-<form>
-  <button (click)="obtenerBalanceTotal()">Calcular Balance</button>
-</form>
-
-<div>{{ balanceGeneral.balanceTotal }}</div>
+  <div>
+    
+    <form>
+      <button (click)="obtenerGastoTotal()">Calcular Gasto Total</button>
+    </form>
+    
+    <div class="resultContent"><p>Gasto Total </p><h4>${{ balanceGeneral.balanceGastos }}</h4></div>
+  </div>
+  
+  <div>
+    <form>
+      <button (click)="obtenerIngresoTotal()">Calcular Ingreso Total</button>
+    </form>
+   
+    
+    <div class="resultContent"> <p>Ingreso Total </p><h4>${{ balanceGeneral.balanceIngresos }}</h4></div>
+  </div>
+  
+  <div>
+   
+    <form>
+      <button (click)="obtenerBalanceTotal()">Calcular Balance</button>
+    </form>
+    
+    <div class="resultContent"> <p>Balance De Ingresos y Gastos </p><h4>${{ balanceGeneral.balanceTotal }}</h4></div>
+  </div>
+  
+</div>
