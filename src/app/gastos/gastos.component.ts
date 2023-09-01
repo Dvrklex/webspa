@@ -16,7 +16,7 @@ export class GastosComponent {
   filtroCategoria: string = '';
 
   // ESTO SE TIENE QUE SELECCIONAR DESDE UN SELECT HTML
-  SelectedMonth: string = 'Sep'
+  SelectedMonth: string = ''
 
 
   constructor(
@@ -36,9 +36,9 @@ export class GastosComponent {
     const gastosGuardados = this.localStorageService.get('gastos') || [];
     gastosGuardados.push(this.gasto);
     for (const Gasto of gastosGuardados) {
-      Gasto.Month = this.datePipe.transform(Gasto.date, 'MMM d, y')
-      Gasto.Month = Gasto.Month.substring(0,3)
-      if (this.SelectedMonth === Gasto.Month) {
+      Gasto.month = this.datePipe.transform(Gasto.date, 'MMM d, y')
+      Gasto.month = Gasto.month.substring(0,3)
+      if (this.SelectedMonth === Gasto.month) {
         Contador = Contador + Gasto.price 
       }
     }

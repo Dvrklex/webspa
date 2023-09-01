@@ -11,5 +11,5 @@ export class GastoModelComponent {
   price: number = 0;
   category: string = '';
   date: string = '';
-  Month: string = ''
+  month: string = ''
 }
