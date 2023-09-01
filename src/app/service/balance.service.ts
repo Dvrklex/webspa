@@ -1,47 +1,30 @@
 import { Injectable } from '@angular/core';
 import { GastosService } from '../service/gastos.service';
-import { IngresosService } from './ingresos.service';
+import { IngresosService } from '../service/ingresos.service';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class BalanceService {
-  private GastoTotal: number = 0;
-  private IngresoTotal: number = 0;
-  private BalanceTotal: number = 0;
-  private ListaGastos: any[] = this.gastosService.obtenerGastos();
-  private ListaIngresos: any[] = this.IngresosService.obtenerIngresos();
-
   constructor(
     private gastosService: GastosService,
-    private IngresosService: IngresosService
+    private ingresosService: IngresosService
   ) {}
 
   sumarGastoTotal() {
-    const listaSumarGastos: any[] = [];
-    for (const elemento of this.ListaGastos) {
-     listaSumarGastos.push(elemento.price)
-    }
-    this.GastoTotal = listaSumarGastos.reduce((a, b) => a + b, 0);
-    console.log(listaSumarGastos);
-    console.log(this.GastoTotal);
-    return(this.GastoTotal);
+    const gastos = this.gastosService.obtenerGastos();
+    return gastos.reduce((total, gasto) => total + gasto.price, 0);
   }
 
   sumarIngresoTotal() {
-    const listaSumarIngresos: any[] = [];
-    for (const elemento of this.ListaIngresos) {
-     listaSumarIngresos.push(elemento.price)
-    }
-    this.IngresoTotal = listaSumarIngresos.reduce((a, b) => a + b, 0);
-    console.log(listaSumarIngresos);
-    console.log(this.IngresoTotal);
-    return(this.IngresoTotal);
+    const ingresos = this.ingresosService.obtenerIngresos();
+    return ingresos.reduce((total, ingreso) => total + ingreso.price, 0);
   }
 
-  calcularBalance(){
-    this.BalanceTotal = this.IngresoTotal - this.GastoTotal;
-    return(this.BalanceTotal)
+  calcularBalance() {
+    const ingresos = this.sumarIngresoTotal();
+    const gastos = this.sumarGastoTotal();
+    return ingresos - gastos;
   }
 }
