@@ -30,7 +30,7 @@ export class GastosComponent {
     this.gastosService.guardarGasto(this.gasto);
     let Contador = 0
 
-    // LA LOGICA DEL FOR, EL IF Y EL CONTADOR VA EN UN SERVICIO SEPERADO
+    // LA LOGICA DEL FOR, EL IF Y EL CONTADOR VA EN UN SERVICIO/COMPONENTE SEPARADO
 
     // Guarda el gasto en el LocalStorage
     const gastosGuardados = this.localStorageService.get('gastos') || [];
@@ -54,7 +54,6 @@ export class GastosComponent {
     return this.gastosService.obtenerGastos()
   }
   
-
   obtenerCategorias() {
     return this.categoriaService.obtenerCategorias();
   }
