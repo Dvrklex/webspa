@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BalanceService } from '../service/balance.service';
-import { BalanceModelComponent } from '../models/balance.models';
+import { BalanceModelComponent } from '../models/balance.models'; // Asegúrate de importar el tipo correcto aquí
 
 @Component({
   selector: 'app-balance',
@@ -9,21 +9,21 @@ import { BalanceModelComponent } from '../models/balance.models';
 })
 
 export class BalanceComponent {
-  balanceGeneral: BalanceModelComponent = new BalanceModelComponent
+  balanceGeneral: BalanceModelComponent = new BalanceModelComponent();
 
   constructor(
     private balanceService: BalanceService,
   ) {}
 
   obtenerGastoTotal() {
-    return this.balanceGeneral.balanceGastos = this.balanceService.sumarGastoTotal()
+    return this.balanceGeneral.balanceGastos = this.balanceService.sumarGastoTotal();
   }
 
   obtenerIngresoTotal() {
-    return this.balanceGeneral.balanceIngresos = this.balanceService.sumarIngresoTotal()
+    return this.balanceGeneral.balanceIngresos = this.balanceService.sumarIngresoTotal();
   }
 
   obtenerBalanceTotal() {
-    return this.balanceGeneral.balanceTotal = this.balanceService.calcularBalance()
+    return this.balanceGeneral.balanceTotal = this.balanceService.calcularBalance();
   }
 }

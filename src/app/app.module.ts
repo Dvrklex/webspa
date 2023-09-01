@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { GastosService } from './service/gastos.service';
+import { LocalStorageService } from './service/localstorage.service'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,10 @@ import { IngresosComponent } from './ingresos/ingresos.component';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [GastosService],
+  providers: [
+    GastosService,
+    LocalStorageService 
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
