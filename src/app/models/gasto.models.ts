@@ -10,6 +10,6 @@ export class GastoModelComponent {
   detail: string = '';
   price: number = 0;
   category: string = '';
-  date: string = '';
+  date: Date = new Date();
   month: string = ''
 }

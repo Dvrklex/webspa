@@ -11,6 +11,8 @@ import { CategoriaComponent } from './categoria/categoria.component';
 import { BalanceComponent } from './balance/balance.component';
 import { IngresosComponent } from './ingresos/ingresos.component';
 import { DatePipe } from '@angular/common';
+import { balanceMensualService } from './service/balanceMensual.service';
+import { BalanceMensualComponent } from './balance-mensual/balance-mensual.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { DatePipe } from '@angular/common';
     GastosComponent,
     CategoriaComponent,
     BalanceComponent,
-    IngresosComponent
+    IngresosComponent,
+    BalanceMensualComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { DatePipe } from '@angular/common';
   providers: [
     GastosService,
     LocalStorageService,
-    DatePipe
+    DatePipe,
+    balanceMensualService
   ],
   bootstrap: [AppComponent]
 })

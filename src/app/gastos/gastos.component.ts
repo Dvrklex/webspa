@@ -3,7 +3,8 @@ import { GastoModelComponent } from '../models/gasto.models';
 import { GastosService } from '../service/gastos.service';
 import { CategoriaService } from '../service/categoria.service';
 import { LocalStorageService } from '../service/localstorage.service';
-import { DatePipe } from '@angular/common';
+import { balanceMensualService } from '../service/balanceMensual.service';
+
 
 @Component({
   selector: 'app-gastos',
@@ -16,41 +17,48 @@ export class GastosComponent {
   filtroCategoria: string = '';
 
   // ESTO SE TIENE QUE SELECCIONAR DESDE UN SELECT HTML
-  SelectedMonth: string = ''
-
+  // SelectedMonth: string = ''
 
   constructor(
     private gastosService: GastosService,
     private categoriaService: CategoriaService,
     private localStorageService: LocalStorageService,
-    private datePipe: DatePipe
+    private balanceMensualService: balanceMensualService
   ) {}
+
+  // obtenerNombreDelMes(fecha: Date): string {
+  //   const meses = [
+  //     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+  //     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  //   ];
+  //   return meses[fecha.getMonth()];
+  // }
   
   guardarGasto() {
+    // let mes = this.obtenerNombreDelMes(this.gasto.date)
+    // let Contador = 0
+
+    // console.log("esto es el mes en string: " + mes)
+
+    this.gasto.date = new Date(this.gasto.date)
     this.gastosService.guardarGasto(this.gasto);
-    let Contador = 0
 
-    // LA LOGICA DEL FOR, EL IF Y EL CONTADOR VA EN UN SERVICIO/COMPONENTE SEPARADO
-
-    // Guarda el gasto en el LocalStorage
     const gastosGuardados = this.localStorageService.get('gastos') || [];
     gastosGuardados.push(this.gasto);
-    for (const Gasto of gastosGuardados) {
-      Gasto.month = this.datePipe.transform(Gasto.date, 'MMM d, y')
-      Gasto.month = Gasto.month.substring(0,3)
-      if (this.SelectedMonth === Gasto.month) {
-        Contador = Contador + Gasto.price 
-      }
-    }
 
-    console.log(Contador);
+    // for (const Gasto of gastosGuardados) { 
+    //   if (this.SelectedMonth === mes) {
+    //     Contador = Contador + Gasto.price;
+    //   }
+    // }
 
+    // console.log("EL BALANCE DE " + mes + " ES: " + Contador);
     this.localStorageService.save('gastos', gastosGuardados);
+    // this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth)
     this.gasto = new GastoModelComponent();
   }
 
   obtenerGastos() {
-    // Obtener gastos desde el Local Storage
     return this.gastosService.obtenerGastos()
   }
   
