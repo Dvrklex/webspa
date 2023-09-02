@@ -19,8 +19,15 @@ export class BalanceMensualComponent {
 
 
   obtenerGastoMensual(){
-    let mensaje = this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth)
-    console.log(mensaje)
+    this.balanceMensual.balanceGastosMensual = this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth)
+  }
+
+  obtenerIngresoMensual(){
+    this.balanceMensual.balanceIngresosMensual = this.balanceMensualService.sumarIngresoTotalMensual(this.SelectedMonth)
+  }
+
+  obtenerBalanceMensual(){
+    this.balanceMensual.balanceMensual = this.balanceMensualService.calcularBalanceMensual(this.SelectedMonth)
   }
 
 

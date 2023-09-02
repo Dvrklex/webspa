@@ -16,9 +16,6 @@ export class GastosComponent {
   gasto: GastoModelComponent = new GastoModelComponent();
   filtroCategoria: string = '';
 
-  // ESTO SE TIENE QUE SELECCIONAR DESDE UN SELECT HTML
-  // SelectedMonth: string = ''
-
   constructor(
     private gastosService: GastosService,
     private categoriaService: CategoriaService,
@@ -26,35 +23,12 @@ export class GastosComponent {
     private balanceMensualService: balanceMensualService
   ) {}
 
-  // obtenerNombreDelMes(fecha: Date): string {
-  //   const meses = [
-  //     "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-  //     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
-  //   ];
-  //   return meses[fecha.getMonth()];
-  // }
-  
   guardarGasto() {
-    // let mes = this.obtenerNombreDelMes(this.gasto.date)
-    // let Contador = 0
-
-    // console.log("esto es el mes en string: " + mes)
-
     this.gasto.date = new Date(this.gasto.date)
     this.gastosService.guardarGasto(this.gasto);
-
     const gastosGuardados = this.localStorageService.get('gastos') || [];
     gastosGuardados.push(this.gasto);
-
-    // for (const Gasto of gastosGuardados) { 
-    //   if (this.SelectedMonth === mes) {
-    //     Contador = Contador + Gasto.price;
-    //   }
-    // }
-
-    // console.log("EL BALANCE DE " + mes + " ES: " + Contador);
     this.localStorageService.save('gastos', gastosGuardados);
-    // this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth)
     this.gasto = new GastoModelComponent();
   }
 

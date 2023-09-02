@@ -33,14 +33,26 @@ export class balanceMensualService {
             Contador += gasto.price;
         }
     }
-    return ( "Este es el balance del mes: " + Contador)
+    return (Contador)
   }
 
-  sumarIngresoTotalMenual() {
-
+  sumarIngresoTotalMensual(mesSeleccionado: string) {
+    let Contador = 0
+    let mes = ""
+    const ingresos = this.localStorageService.get('ingresos') || [];
+    for (const gasto of ingresos) {
+        gasto.date = new Date(gasto.date)
+        mes = this.obtenerNombreDelMes(gasto.date)
+        if (mes === mesSeleccionado) {
+            Contador += gasto.price;
+        }
+    }
+    return (Contador)
   }
 
-  calcularBalanceMensual() {
-
+  calcularBalanceMensual(mesSeleccionado: string) {
+    const ingresos = this.sumarIngresoTotalMensual(mesSeleccionado);
+    const gastos = this.sumarGastoTotalMensual(mesSeleccionado)
+    return ingresos - gastos;
   }
 }
