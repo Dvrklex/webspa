@@ -3,6 +3,8 @@ import { GastoModelComponent } from '../models/gasto.models';
 import { GastosService } from '../service/gastos.service';
 import { CategoriaService } from '../service/categoria.service';
 import { LocalStorageService } from '../service/localstorage.service';
+import { balanceMensualService } from '../service/balanceMensual.service';
+
 
 @Component({
   selector: 'app-gastos',
@@ -17,28 +19,23 @@ export class GastosComponent {
   constructor(
     private gastosService: GastosService,
     private categoriaService: CategoriaService,
-    private localStorageService: LocalStorageService 
+    private localStorageService: LocalStorageService,
+    private balanceMensualService: balanceMensualService
   ) {}
-  
-  guardarGasto() {
-    this.gastosService.guardarGasto(this.gasto);
-    console.log(this.gasto.name, this.gasto.category);
 
-    // Guarda el gasto en el LocalStorage
+  guardarGasto() {
+    this.gasto.date = new Date(this.gasto.date)
+    this.gastosService.guardarGasto(this.gasto);
     const gastosGuardados = this.localStorageService.get('gastos') || [];
     gastosGuardados.push(this.gasto);
     this.localStorageService.save('gastos', gastosGuardados);
-
     this.gasto = new GastoModelComponent();
   }
 
   obtenerGastos() {
-    // Obtener gastos desde el Local Storage
-    const gastosGuardados = this.localStorageService.get('gastos');
-    return gastosGuardados || [];
+    return this.gastosService.obtenerGastos()
   }
   
-
   obtenerCategorias() {
     return this.categoriaService.obtenerCategorias();
   }

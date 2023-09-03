@@ -25,13 +25,20 @@ export class IngresosComponent {
   }
 
   guardarIngreso() {
+    this.ingreso.date = new Date(this.ingreso.date)
     this.ingresosService.guardarIngreso(this.ingreso);
-    console.log(this.ingreso.name, this.ingreso.category);
-
-    this.ingresosGuardados.push(this.ingreso);
-    this.localStorageService.save('ingresos', this.ingresosGuardados);
-
+    const ingresosGuardados = this.localStorageService.get('ingresos') || [];
+    ingresosGuardados.push(this.ingreso);
+    this.localStorageService.save('ingresos', ingresosGuardados);
     this.ingreso = new IngresoModelComponent();
+
+
+
+    // this.ingresosService.guardarIngreso(this.ingreso);
+    // console.log(this.ingreso.name, this.ingreso.category);
+    // this.ingresosGuardados.push(this.ingreso);
+    // this.localStorageService.save('ingresos', this.ingresosGuardados);
+    // this.ingreso = new IngresoModelComponent();
   }
 
   obtenerIngresos() {

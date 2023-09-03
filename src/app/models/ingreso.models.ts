@@ -10,5 +10,5 @@ export class IngresoModelComponent {
   detail: string = '';
   price: number = 0;
   category: string = '';
-  date: string = '';
+  date: Date = new Date();
 }
