@@ -44,7 +44,7 @@
     <h2>Lista de Gastos</h2>
    
     <select [(ngModel)]="filtroCategoria">
-      <option value="">Todas las categorías</option>
+      <option value="">Filtrar categoria...</option>
       <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
     </select>
     <ul>
@@ -55,17 +55,7 @@
   </div>
 
 
-  <div *ngIf="aplicarFiltro().length < 0">
-        <select [(ngModel)]="filtroCategoria">
-          <option value="">Todas las categorías</option>
-          <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
-        </select>
-      <ul>
-        <li *ngFor="let gasto of obtenerGastos()">
-            <strong>{{ gasto.name }}</strong> - {{ gasto.category }} - {{ gasto.detail }} - {{ gasto.price | currency }} - {{ gasto.date | date }}
-          </li>
-        </ul>
-  </div>
+  
 
 </div>
 </div>

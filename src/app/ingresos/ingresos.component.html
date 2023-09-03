@@ -53,18 +53,7 @@
     </div>
   
   
-    <div *ngIf="aplicarFiltro().length < 0">
-          <select [(ngModel)]="filtroCategoria">
-            <option value="">Todas las categorías</option>
-            <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
-          </select>
-        <ul>
-          <li *ngFor="let ingreso of obtenerIngresos()">
-              <strong>{{ ingreso.name }}</strong> - {{ ingreso.category }} - {{ ingreso.detail }} - {{ ingreso.price | currency }} - {{ ingreso.date | date }}
-            </li>
-          </ul>
-    </div>
-  
+   
   </div>
     
 </div>

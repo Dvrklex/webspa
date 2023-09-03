@@ -11,7 +11,7 @@
     -webkit-backdrop-filter: blur(10.7px);
     border: 1px solid #9c4c00;
     width: 90%;
-    min-height: 250px;
+    min-height: 300px;
     margin: 20px auto;
 }
 
@@ -56,40 +56,11 @@ form > div > input:focus{
     cursor: pointer;
 }
 
-form > div > select{
-    
-    border: 2px solid rgb(255, 115, 0);
-    font-size: 18px;
-    color: #000000;
-    background-color: #ffd67d;
-    border-radius: 5px;
-    box-shadow: 4px 4px #9c4c00;
-    border-radius: 10px;
-    padding: 5px;
-
-}
-
-form > div > select > option{
-    border-color: rgb(255, 115, 0);
-    border-radius: 10px;
-    padding: 5px;
-    background-color: rgb(255, 206, 116);
-}
-form > div > select:focus{
-    border-color:#ff730d ;
-    outline: red;
-}
-form > div > select > option:hover{
-    background-color:#ff9b3d ;
-    cursor: pointer;
-}
-  
 
 
 
 form > button {
     background-color: orange;
-    margin-top: 20px;
     border-style: none ;
     border-radius: 10px;
     height: 40px;
@@ -110,23 +81,40 @@ form > button:active{
     transition: ease-out;
 }
 
-
-.listaIngresos {
+.listaCategorias{
     display: grid;
     margin: auto;
-    width: 300px;
-}
-.listaIngresos > h2{
-    
-    font-size: 22px;
+    width: 400px;
+    max-height: 150px;
+    overflow-y: auto;
+    margin: 20px auto;
+    border: 2px solid #9c4c00;
+    border-radius: 10px;
+    padding: 10px;
 
 }
-.listaIngresos > ul{
-    list-style:circle orange;   
 
+
+
+.listaCategorias ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .listaCategorias li {
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    margin-bottom: 10px; 
 }
 
-.listaIngresos > ul > li{
-    font-size: 18px;
+.listaCategorias li:hover{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.459); 
+}
 
+
+.listaCategorias li strong {
+    font-weight: bold;
+    color: #ff730d;  
 }

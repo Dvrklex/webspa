@@ -14,13 +14,9 @@
     <button (click)="guardarCategoria()">Guardar</button>
   </form>
 
-  <div class="listaIngresos">
-    <h2 *ngIf="obtenerCategorias().length > 0">Lista de Categorías</h2>
-  
-    <ul>
-      <li *ngFor="let categoria of obtenerCategorias()">
-        <strong>{{ categoria.name }}</strong> - {{ categoria.detail }}
-      </li>
+  <div *ngIf="obtenerCategorias().length > 0" class="listaCategorias">
+    <ul  id="category" name="category">
+      <li *ngFor="let categoria of obtenerCategorias()" value={{categoria.name}}><strong>{{ categoria.name }}</strong> - {{ categoria.detail}}</li>
     </ul>
   </div>
 </div>

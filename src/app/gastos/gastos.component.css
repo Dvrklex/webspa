@@ -8,6 +8,7 @@
     border: 1px solid #9c4c00;
     width: 90%;
     min-height: 250px;
+    max-height: 800px;
     margin: 20px auto;
 }
 
@@ -106,42 +107,78 @@ form > button:active{
 }
 
 
-.gastosContaier{
-    display : flex;
-    width: 500px;
-    align-items: center;
-}
-.listaGastos {
-    display: grid;
-    margin: auto;
-}
-.listaGastos > h2{
-    
-    font-size: 22px;
 
-}
-.listaGastos > ul{
-    list-style:circle orange;   
-
-}
-
-.listaGastos > ul > li{
-    font-size: 18px;
-
-}
-
-.listaGastos > .filtroSelect{
+.gastosContainer {
+    flex-direction: column; 
     display: flex;
-    width: 500px;
-    padding: 5px;
-    align-items: center;
+    align-items:flex-start;
+    width: 100%;
+    margin-left: 25px;
 }
-
-.listaGastos > .filtroSelect > select{
-    height: 45px;
+.listaGastosFiltro{
+    max-width: 600px;
+    max-height: 600px;
+    
+}
+.gastosContainer > div > select{
+    width: 100%;
+    border: 2px solid rgb(255, 115, 0);
+    font-size: 18px;
+    color: #000000;
+    background-color: #ffd67d;
+    border-radius: 5px;
+    box-shadow: 4px 4px #9c4c00;
+    border-radius: 10px;
+    padding: 5px;
+}
+.gastosContainer > div > option{
     border-color: rgb(255, 115, 0);
     border-radius: 10px;
     padding: 5px;
-    background-color: orange;
-    margin: 20px;
+    background-color: rgb(255, 206, 116);
 }
+.gastosContainer > div > select:focus{
+    border-color:#ff730d ;
+    outline: red;
+}
+.gastosContainer > div > select > option:hover{
+    background-color:#ff9b3d ;
+    cursor: pointer;
+}
+  
+.listaGastosFiltro ul {
+    max-height: 400px;
+    overflow-y: auto;
+    list-style: none;
+    padding:5px;
+  }
+.listaGastosFiltro li {
+    background-color: #fff; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    padding: 10px;
+    margin-bottom: 10px; 
+}
+
+.listaGastosFiltro li:hover{
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.459); 
+}
+
+
+.listaGastosFiltro li strong {
+    font-weight: bold;
+    color: #ff730d;  
+}
+
+  
+.listaGastosFiltro h2 {
+    text-shadow: 1px 1px #9c4c00;
+    margin-top: 20px;
+    text-align: center;
+}
+  
+
+.gastosContainer .listaGastosFiltro ul {
+    width: 100%; 
+}
+  
