@@ -6,7 +6,6 @@
     -webkit-backdrop-filter: blur(10.7px);
     border: 1px solid #9c4c00;
     width: 90%;
-    max-height: 800px;
     min-height: 250px;
     margin: 20px auto;
 }
