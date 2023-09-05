@@ -1,72 +1,16 @@
-<form>
-  <select id="month" name="month" [(ngModel)]="SelectedMonth" required>
-    <option value="Enero">Enero</option>
-    <option value="Febrero">Febrero</option>
-    <option value="Marzo">Marzo</option>
-    <option value="Abril">Abril</option>
-    <option value="Mayo">Mayo</option>
-    <option value="Junio">Junio</option>
-    <option value="Julio">Julio</option>
-    <option value="Agosto">Agosto</option>
-    <option value="Septiembre">Septiembre</option>
-    <option value="Octubre">Octubre</option>
-    <option value="Noviembre">Noviembre</option>
-    <option value="Diciembre">Diciembre</option>
-  </select>
-</form>
-
-<form>
-  <button (click)="obtenerBalanceMensual()">Obtener Balance Mensual</button>
-</form>
-
-<div> El balance de este mes es: {{ balanceMensual.balanceMensual }} </div>
-
-
-<form>
-    <button (click)="obtenerGastoMensual()">Obtener Gasto Mensual</button>
-</form>
-
-<form>
-  <select id="month" name="month" [(ngModel)]="SelectedMonth" required>
-    <option value="Enero">Enero</option>
-    <option value="Febrero">Febrero</option>
-    <option value="Marzo">Marzo</option>
-    <option value="Abril">Abril</option>
-    <option value="Mayo">Mayo</option>
-    <option value="Junio">Junio</option>
-    <option value="Julio">Julio</option>
-    <option value="Agosto">Agosto</option>
-    <option value="Septiembre">Septiembre</option>
-    <option value="Octubre">Octubre</option>
-    <option value="Noviembre">Noviembre</option>
-    <option value="Diciembre">Diciembre</option>
-  </select>
-</form>
-
-<div> El gasto de este mes fue:  {{ balanceMensual.balanceGastosMensual }}</div>
-
-
-<form>
-  <button (click)="obtenerIngresoMensual()">Obtener Ingreso Mensual</button>
-</form>
-
-<form>
-<select id="month" name="month" [(ngModel)]="SelectedMonth" required>
-  <option value="Enero">Enero</option>
-  <option value="Febrero">Febrero</option>
-  <option value="Marzo">Marzo</option>
-  <option value="Abril">Abril</option>
-  <option value="Mayo">Mayo</option>
-  <option value="Junio">Junio</option>
-  <option value="Julio">Julio</option>
-  <option value="Agosto">Agosto</option>
-  <option value="Septiembre">Septiembre</option>
-  <option value="Octubre">Octubre</option>
-  <option value="Noviembre">Noviembre</option>
-  <option value="Diciembre">Diciembre</option>
-</select>
-</form>
-
-<div> El ingreso de este mes fue:  {{ balanceMensual.balanceIngresosMensual }}</div>
-
-
+<div class="gastoMensual">
+  <form class="selectMonth">
+    <select id="month" name="month" [(ngModel)]="SelectedMonth" required>
+      <option *ngFor="let month of months" [value]="month">{{ month }}</option>
+    </select>
+  </form>
+  
+  <form class="balances">
+    <button (click)="obtenerBalance('balanceMensual')">Obtener Balance Mensual</button>
+    <button (click)="obtenerBalance('balanceGastosMensual')">Obtener Gasto Mensual</button>
+    <button (click)="obtenerBalance('balanceIngresosMensual')">Obtener Ingreso Mensual</button>
+  </form>
+  
+  <div *ngIf="selectedBalance">{{ selectedBalance.message }}: {{ selectedBalance.value }}</div>
+  
+</div>

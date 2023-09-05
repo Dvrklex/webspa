@@ -10,26 +10,32 @@ import { BalanceModelComponent } from '../models/balanceMensual.models';
 })
 export class BalanceMensualComponent {
   balanceMensual: BalanceModelComponent = new BalanceModelComponent();
-  SelectedMonth: string = ''
+  SelectedMonth: string = '';
+  selectedBalance: { message: string; value: number } | null = null;
+  months: string[] = [
+    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+  ];
 
   constructor(
     private localStorageService: LocalStorageService,
     private balanceMensualService: balanceMensualService
   ) {}
 
-
-  obtenerGastoMensual(){
-    this.balanceMensual.balanceGastosMensual = this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth)
+  obtenerBalance(balanceType: string) {
+    switch (balanceType) {
+      case 'balanceMensual':
+        this.selectedBalance = { message: 'El balance de este mes es', value: this.balanceMensualService.calcularBalanceMensual(this.SelectedMonth) };
+        break;
+      case 'balanceGastosMensual':
+        this.selectedBalance = { message: 'El gasto de este mes fue', value: this.balanceMensualService.sumarGastoTotalMensual(this.SelectedMonth) };
+        break;
+      case 'balanceIngresosMensual':
+        this.selectedBalance = { message: 'El ingreso de este mes fue', value: this.balanceMensualService.sumarIngresoTotalMensual(this.SelectedMonth) };
+        break;
+      default:
+        this.selectedBalance = null;
+        break;
+    }
   }
-
-  obtenerIngresoMensual(){
-    this.balanceMensual.balanceIngresosMensual = this.balanceMensualService.sumarIngresoTotalMensual(this.SelectedMonth)
-  }
-
-  obtenerBalanceMensual(){
-    this.balanceMensual.balanceMensual = this.balanceMensualService.calcularBalanceMensual(this.SelectedMonth)
-  }
-
-
-
 }
