@@ -4,6 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # What is a SPA (Single Page Application)?
 A Single Page Application (SPA) is a type of web application that operates within a single web page instead of multiple pages. In a SPA, all content is initially loaded as part of the main page, and user interactions with the application are handled dynamically without the need to completely reload the page. This results in a faster and smoother user experience, akin to that of a desktop application.
 
+## Run this project
+1. Clone this repository: `git clone https://github.com/Dvrklex/webspa.git`
+2. Install the dependencies `npm init`
+3. Run `ng serve` and go to the http://localhost:4200/ to see the site.
+
 # How it SPA works
 
 Initial Load: A SPA loads an initial HTML page containing the basic structure, styles, and scripts.
@@ -43,27 +48,3 @@ Routing: Client-side routing allows for quicker navigation and prevents page rel
 
 Interactivity: Enables dynamic content updates without interruptions.
 
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
