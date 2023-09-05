@@ -42,7 +42,7 @@ export class IngresosComponent {
   }
 
   obtenerIngresos() {
-    return this.ingresosGuardados;
+    return this.ingresosService.obtenerIngresos();
   }
 
   obtenerCategorias() {

@@ -15,13 +15,14 @@ import { balanceMensualService } from '../service/balanceMensual.service';
 export class GastosComponent {
   gasto: GastoModelComponent = new GastoModelComponent();
   filtroCategoria: string = '';
+  gastosGuardados: GastoModelComponent[] = [];
 
   constructor(
     private gastosService: GastosService,
     private categoriaService: CategoriaService,
     private localStorageService: LocalStorageService,
     private balanceMensualService: balanceMensualService
-  ) {}
+  ) { this.gastosGuardados = this.localStorageService.get('gastos')}
 
   guardarGasto() {
     this.gasto.date = new Date(this.gasto.date)
@@ -33,7 +34,7 @@ export class GastosComponent {
   }
 
   obtenerGastos() {
-    return this.gastosService.obtenerGastos()
+    return this.gastosService.obtenerGastos();
   }
   
   obtenerCategorias() {
