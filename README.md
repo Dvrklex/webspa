@@ -19,26 +19,17 @@ URL Updates: Despite having only one HTML page, the URL in the browser's address
 Lazy Loading: Additional resources like images, styles, and scripts are loaded lazily as needed to enhance performance.
 
 ```mermaid
-title Funcionamiento de un SPA
 
-subgraph Cliente
-  c1((Carga Inicial)) --> c2((Interfaz))
-end
+sequenceDiagram
+    box SPA
+    participant Client
+    participant Server
+    end
 
-subgraph Servidor
-  s1((Envío HTML, JS, CSS)) --> s2((API de Datos))
-end
-
-c2 --> a1{Navegación}
-a1 --> a2((Carga de Componentes))
-a2 --> a3((Actualización de URL))
-a3 --> a4((Actualización de Vista))
-
-a2 --> s2
-s2 --> a2
-
-c2 --> s1
-s1 --> c2
+    Client-)Server:Initial Request
+    Server-->>Client:HTML
+    Client-)Server:AJAX
+    Server-->>Client:JSON
 
 ```
 
