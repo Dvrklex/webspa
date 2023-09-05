@@ -1,6 +1,7 @@
 <div class="gastoMensual">
   <form class="selectMonth">
     <select id="month" name="month" [(ngModel)]="SelectedMonth" required>
+      <option value="">Seleccionar periodo</option>
       <option *ngFor="let month of months" [value]="month">{{ month }}</option>
     </select>
   </form>
@@ -11,6 +12,6 @@
     <button (click)="obtenerBalance('balanceIngresosMensual')">Obtener Ingreso Mensual</button>
   </form>
   
-  <div *ngIf="selectedBalance">{{ selectedBalance.message }}: {{ selectedBalance.value }}</div>
+  <div *ngIf="selectedBalance" class="balanceResult">{{ selectedBalance.message }}: {{ selectedBalance.value }}</div>
   
 </div>

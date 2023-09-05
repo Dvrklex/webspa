@@ -19,7 +19,7 @@
       <div>
         <label for="category">Categoría:</label>
         <select  id="category" name="category" [(ngModel)]="ingreso.category" required>
-          <option value="">Selecciona una categoría</option>
+          <option value="">Seleccionar categoría...</option>
           <option *ngFor="let categoria of obtenerCategorias()" value={{categoria.name}}>{{ categoria.name }}</option>
         </select>
       </div>
@@ -42,7 +42,7 @@
       <h2>Lista de Ingresos</h2>
       
       <select [(ngModel)]="filtroCategoria">
-        <option value="">Todas las categorías</option>
+        <option value="">Seleccionar</option>
         <option *ngFor="let categoria of obtenerCategorias()" [value]="categoria.name">{{ categoria.name }}</option>
       </select>
       <ul>

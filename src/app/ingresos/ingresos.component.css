@@ -6,7 +6,7 @@
     -webkit-backdrop-filter: blur(10.7px);
     border: 1px solid #9c4c00;
     width: 90%;
-    min-height: 250px;
+    min-height: 270px;
     margin: 20px auto;
 }
 
@@ -110,15 +110,14 @@ form > button:active{
 .ingresosContainer {
     flex-direction: column; 
     display: flex;
-    align-items:flex-start;
+    align-items:center;
     width: 100%;
-    margin-left: 25px;
 }
+
 .listaIngresosFiltro{
-    max-height: 600px;
-    max-width: 600px;
+    max-height: 600px ;
+    max-width: 900px;
 }
-  
 .ingresosContainer > div > select{
     width: 100%;
     border: 2px solid rgb(255, 115, 0);

@@ -1,6 +1,7 @@
 .balanceContainer{
     display: flex;
-    justify-content: space-around; /* Ajusta el espaciado entre las columnas */
+    flex-wrap: wrap;
+    flex-direction: column;
     align-items: flex-start; 
     padding: 10px;
     background: #cccccc48;
@@ -9,26 +10,21 @@
     backdrop-filter: blur(10.7px);
     -webkit-backdrop-filter: blur(10.7px);
     border: 1px solid #9c4c00;
-    width: 90%;
+    width: auto;
     min-height: 250px;
-    margin: 20px auto;
+    margin: 20px 10px;
 }
 
 .balanceContainer > div {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 20%;        
-    margin: 10px; 
+    /* width: 300px;         */
 }
 
-.balanceContainer > div > form{
-    margin-bottom: 10px;
-}
+
 
 div > form > button {
     background-color: orange;
-    margin-top: 20px;
     border-style: none ;
     border-radius: 10px;
     height: 40px;
@@ -49,16 +45,11 @@ div > form > button:active{
     transition: ease-out;
 }
 
-.resultContent{
-    display: grid;
-    text-align: center;
 
-}
 .resultContent > h4{
     border: solid 1px #9c4c00;
     border-radius: 10px;
     padding: 10px 20px ;
-    position: absolute;
     bottom: 0;
     margin-left: 25px;
 }
